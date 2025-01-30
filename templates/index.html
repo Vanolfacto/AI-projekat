@@ -12,6 +12,31 @@
             padding: 20px;
         }
         
+        /* Stilizovanje dugmeta za početnu stranu */
+        .btn-home {
+            padding: 15px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-home:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .btn-home:focus {
+            outline: none;
+        }
          
         .hidden {
             display: none;
@@ -163,14 +188,15 @@
     </style>
 </head>
 <body>
+    <a href="{{ url_for('home') }}" class="btn-home">Početna Strana</a>
     <h1>Razgovarajte sa Narutom!</h1>
-
-    <form action="/clear_chat" method="post" class="delete-form">
+    
+    <form action="/clear_chatNaruto" method="post" class="delete-form">
         <button type="submit" class="btn">Obriši razgovor</button>
     </form>
     <button id="toggleFormBtn" class="btn">Promeni Token</button>
 
-    <form id="tokenForm" class="hidden" method="POST" action="/set_token">
+    <form id="tokenForm" class="hidden" method="POST" action="/set_tokenNaruto">
         <label for="token">Izaberite vrednost tokena:</label>
         <input type="range" id="token" name="token" min="50" max="500" value="{{ current_token }}">
         <p>Trenutna vrednost: <span id="tokenValue">{{ current_token }}</span></p>
@@ -191,15 +217,15 @@
     <!-- Dodavanje slike Naruta -->
     <img src="https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png" alt="Naruto Uzumaki" class="naruto-image">
 
-    <form action="/ask" method="post">
+    <form action="/askNaruto" method="post">
         <label for="user_input">Vaša poruka:</label><br>
         <input type="text" id="user_input" name="user_input" required><br><br>
         <input type="submit" value="Pošalji">
     </form>
     
 
-    <div id="conversation-history">
-        {% for message in conversation_history %}
+    <div id="conversation-historyN">
+        {% for message in conversation_historyN %}
             <div class="message {{ 'user-message' if message.startswith('User') else 'naruto-message' }}">
                 <p>{{ message }}</p>
             </div>

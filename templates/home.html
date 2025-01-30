@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiktivni Likovi</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+}
+
+.characters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.character-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.character-image:hover {
+    transform: scale(1.1);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Izaberi svog Fiktivnog Lika</h1>
+        <div class="characters">
+            <a href="{{ url_for('naruto') }}">
+                <img src="https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png" alt="Naruto" class="character-image">
+                <p>Naruto</p>
+            </a>
+            <a href="{{ url_for('batman') }}">
+                <img src="https://static.wikia.nocookie.net/arkhamcity/images/b/ba/BAABatmanCharacterRender.jpeg" alt="Batman" class="character-image">
+                <p>Batman</p>
+            </a>
+            <a href="{{ url_for('gandalf') }}">
+                <img src="https://static.wikia.nocookie.net/middlearthfilmseries/images/4/4b/Gandlaf-ROTKProfile.png" alt="Gandalf" class="character-image">
+                <p>Gandalf</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
